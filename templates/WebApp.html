@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>File Sharing App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to top, #1a1a40, #2c3e50);
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .logo {
+      text-align: center;
+      margin: 20px auto 30px;
+      animation: pulse 4s infinite;
+    }
+
+    .logo svg {
+      width: 180px;
+      height: auto;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffffff;
+      margin-top: 10px;
+    }
+
+    .container {
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 24px;
+      color: #bb86fc;
+      margin-bottom: 20px;
+    }
+
+    input[type="file"] {
+      margin-bottom: 15px;
+      color: #e0e0e0;
+    }
+
+    button {
+      background-color: #03dac6;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #018786;
+    }
+
+    .link {
+      margin-top: 15px;
+      color: #03dac6;
+      font-weight: bold;
+    }
+
+    .cloud {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      opacity: 0.1;
+      animation: float 40s linear infinite;
+      z-index: 0;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .cloud::before {
+      width: 140px;
+      height: 140px;
+      top: -70px;
+      left: 30px;
+    }
+
+    .cloud::after {
+      width: 160px;
+      height: 160px;
+      top: -80px;
+      right: 30px;
+    }
+
+    .cloud1 {
+      width: 200px;
+      height: 120px;
+      top: 20%;
+      left: -250px;
+      animation-duration: 60s;
+    }
+
+    .cloud2 {
+      width: 250px;
+      height: 130px;
+      top: 50%;
+      left: -300px;
+      animation-duration: 90s;
+    }
+
+    .cloud3 {
+      width: 180px;
+      height: 100px;
+      top: 70%;
+      left: -220px;
+      animation-duration: 50s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(110vw);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.04);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
+
+  <div class="logo">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#000" stroke-width="2">
+      <path d="M10 18 H54 Q56 18 56 20 V22 H8 V20 Q8 18 10 18 Z" fill="#000"/>
+      <rect x="22" y="6" width="20" height="12" rx="1" fill="#000"/>
+      <rect x="12" y="26" width="16" height="10" fill="#000"/>
+      <rect x="36" y="26" width="16" height="10" fill="#000"/>
+      <line x1="28" y1="30.5" x2="36" y2="30.5" stroke="#000" stroke-width="2"/>
+      <path d="M16 24 Q20 22 24 24" stroke="#000"/>
+      <path d="M40 24 Q44 22 48 24" stroke="#000"/>
+      <path d="M32 36 Q30 40 32 42 Q34 40 32 36 Z" fill="#000"/>
+      <path d="M22 45 Q24 43 26 45 M26 45 Q28 43 30 45 M30 45 Q32 43 34 45 M34 45 Q36 43 38 45 M38 45 Q40 43 42 45" stroke="#000"/>
+      <path d="M24 50c2 4 6 6 8 6s6-2 8-6H24z" fill="#000"/>
+      <path d="M16 26 Q10 46 22 60 Q32 64 42 60 Q54 46 48 26" fill="none" stroke="#000"/>
+      <line x1="13" y1="27" x2="15" y2="34" stroke="white" stroke-width="1" opacity="0.4">
+        <animate attributeName="x1" values="13;26;13" dur="3s" repeatCount="indefinite" />
+        <animate attributeName="x2" values="15;28;15" dur="3s" repeatCount="indefinite" />
+      </line>
+      <line x1="37" y1="27" x2="39" y2="34" stroke="white" stroke-width="1" opacity="0.4">
+        <animate attributeName="x1" values="37;50;37" dur="3s" repeatCount="indefinite" />
+        <animate attributeName="x2" values="39;52;39" dur="3s" repeatCount="indefinite" />
+      </line>
+    </svg>
+    <span>هيزنبخ لخدمات السحابة</span>
+  </div>
+
+  <!-- 📤 فورم الرفع -->
+  <div class="container">
+    <h1>Upload Your File</h1>
+    <form id="uploadForm">
+      <input type="file" name="file" id="fileInput" required>
+      <br>
+      <button type="submit">Upload</button>
+    </form>
+    <div id="message"></div>
+    <div class="link" id="downloadLink" style="display: none;"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('uploadForm');
+    const messageDiv = document.getElementById('message');
+    const downloadLinkDiv = document.getElementById('downloadLink');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      messageDiv.textContent = 'Uploading...';
+      downloadLinkDiv.style.display = 'none';
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          messageDiv.textContent = 'File uploaded successfully!';
+          downloadLinkDiv.style.display = 'block';
+          downloadLinkDiv.innerHTML = `<a href="${result.download_link}" target="_blank">Download File</a>`;
+        } else {
+          messageDiv.textContent = `Error: ${result.error}`;
+        }
+      } catch (error) {
+        messageDiv.textContent = 'Something went wrong. Please try again.';
+      }
+    });
+  </script>
+</body>
+</html>
