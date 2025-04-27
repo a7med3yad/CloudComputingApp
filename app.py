@@ -17,7 +17,7 @@ s3 = boto3.client("s3", region_name=S3_REGION)
 
 @app.route('/')
 def index():
-    return render_template("WebApp.html")
+    return render_template("index.html")
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
